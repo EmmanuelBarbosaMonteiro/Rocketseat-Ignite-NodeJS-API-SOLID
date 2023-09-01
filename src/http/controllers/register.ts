@@ -1,5 +1,3 @@
-import { prisma } from '@/lib/prisma'
-import { hash } from 'bcryptjs'
 import { z } from 'zod'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { registerUseCase } from '@/use-cases/register'
