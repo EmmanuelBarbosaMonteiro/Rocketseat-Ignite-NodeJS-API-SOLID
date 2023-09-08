@@ -19,8 +19,8 @@ describe('Check-in Use Case', () => {
             title: 'JavaScript Gym',
             description:'',
             phone: '',
-            latitude: new Decimal(0),
-            longitude: new Decimal(0),
+            latitude: new Decimal(-27.2092052),
+            longitude: new Decimal(-49.6401091),
         })
 
         vi.useFakeTimers()
@@ -95,11 +95,11 @@ describe('Check-in Use Case', () => {
         
         await expect(() => 
             sut.execute({
-                gymId: 'gym-01',
+                gymId: 'gym-02',
                 userId: 'user-01',
                 userLatitude: -27.2092052,
                 userLongitude: -49.6401091,
-            })
+            }),
         ).rejects.toBeInstanceOf(Error)
     })
 })
