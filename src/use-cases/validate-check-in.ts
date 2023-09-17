@@ -11,23 +11,23 @@ interface ValidateCheckInUseCaseResponse {
 }
 
 export class ValidateCheckInUseCase {
-  constructor(private checkInsRepository: CheckInsRepository,) {}
+  constructor(private checkInsRepository: CheckInsRepository) {}
 
-  async execute({ 
-        checkInId,
+  async execute({
+    checkInId,
   }: ValidateCheckInUseCaseRequest): Promise<ValidateCheckInUseCaseResponse> {
     const checkIn = await this.checkInsRepository.findById(checkInId)
 
-    if(!checkIn) {
-        throw new ResourceNotFoundError()
+    if (!checkIn) {
+      throw new ResourceNotFoundError()
     }
-        
+
     checkIn.validated_at = new Date()
 
     await this.checkInsRepository.save(checkIn)
 
     return {
-      checkIn
+      checkIn,
     }
   }
 }
