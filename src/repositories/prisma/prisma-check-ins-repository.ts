@@ -1,9 +1,9 @@
-import { CheckIn, Prisma } from "@prisma/client";
-import { CheckInsRepository } from "../check-ins-repository";
-import { prisma } from "@/lib/prisma";
-import dayjs from "dayjs";
+import { CheckIn, Prisma } from '@prisma/client'
+import { CheckInsRepository } from '../check-ins-repository'
+import { prisma } from '@/lib/prisma'
+import dayjs from 'dayjs'
 
-export class PrismaCheckInRepository implements CheckInsRepository{
+export class PrismaCheckInRepository implements CheckInsRepository {
   async findById(id: string) {
     const checkIn = await prisma.checkIn.findUnique({
       where: {
